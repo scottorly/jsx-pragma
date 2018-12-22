@@ -34,7 +34,7 @@ export const h = (elementName, attributes, ...args) => {
 
         const element = document.createElement(elementName)
 
-        if (attributes == null && children == undefined) {
+        if (!Object.keys(attributes).length && children == undefined) {
             return element
         }
 
