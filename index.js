@@ -32,6 +32,9 @@ export const h = (elementName, attributes, ...args) => {
 
         for (const key in attributes) {
             const value = attributes[key]
+            if (value === undefined) {
+                continue
+            }
             if (key === 'className') {
                 value.split(" ").forEach(c => element.classList.add(c))
                 continue
@@ -71,4 +74,3 @@ export const f = ({ children }) => {
         console.log(error)
     }
 }
-
