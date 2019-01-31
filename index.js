@@ -1,3 +1,5 @@
+import '@babel/polyfill'
+
 export const h = (elementName, attributes, ...args) => {
     try {
 
