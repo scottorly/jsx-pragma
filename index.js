@@ -2,7 +2,6 @@ import '@babel/polyfill'
 
 export const h = (elementName, attributes, ...args) => {
     try {
-
         let children = args.length ? [].concat(...args) : []
 
         if (attributes === null || attributes === undefined) {
