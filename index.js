@@ -15,7 +15,13 @@ export const h = (elementName, attributes, ...args) => {
             })
         }
 
-        const element = document.createElement(elementName)
+        let nsUri = 'http://www.w3.org/1999/xhtml'
+
+        if (attributes.xmlns !== undefined) {
+            nsUri = attributes.xmlns
+        }
+        
+        const element = document.createElementNS(nsUri, elementName)
 
         if (!Object.keys(attributes).length && children == undefined) {
             return element
@@ -24,16 +30,20 @@ export const h = (elementName, attributes, ...args) => {
         children.forEach(child => {
             if (typeof child === 'string') {
                 element.appendChild(document.createTextNode(child))
-            } else if (child instanceof HTMLElement == true || child instanceof DocumentFragment === true) {
+            } else if (
+                child instanceof HTMLElement == true || 
+                child instanceof DocumentFragment === true || 
+                child instanceof SVGElement === true
+                ) {
                 element.appendChild(child)
             } else if (child instanceof Array === true) {
                 child.forEach(item => element.appendChild(item))
             }
         })
-
+    
         for (const key in attributes) {
             const value = attributes[key]
-            if (value === undefined) {
+            if (value === undefined || key === 'xmlns') {
                 continue
             }
             if (key === 'className') {
@@ -64,7 +74,10 @@ export const f = ({ children }) => {
                 child.forEach(item => fragment.appendChild(h(item)))
             } else if (typeof child === 'string') {
                 fragment.appendChild(document.createTextNode(child))
-            } else if (child instanceof HTMLElement === true || child instanceof DocumentFragment === true) {
+            } else if (
+                child instanceof HTMLElement === true ||
+                child instanceof DocumentFragment === true ||
+                child instanceof SVGElement === true) {
                 fragment.appendChild(child)
             } else {
                 fragment.appendChild(h(child))
