@@ -5,12 +5,14 @@ import jsdom from 'jsdom-global'
 jsdom()
 
 describe('jsx-dom', () => {
+
     describe('rendering', () => {
 
         it('should exist', () => {
             const div = (
                 <div>
                     a string
+                    {['a', 'list', 'of', 'things', <div>including divs</div>]}
                     {[
                         <></>, 
                         <div></div>
@@ -28,12 +30,7 @@ describe('jsx-dom', () => {
         })
 
         it('shoud render svg with the proper namespace uri', () => {
-            const svg = (
-                <svg xmlns='http://www.w3.org/2000/svg'>
-                    <g xmlns='http://www.w3.org/2000/svg'></g>    
-                </svg>
-            )
-            console.log(svg)
+            const svg = (<svg xmlns='http://www.w3.org/2000/svg' />)
             svg.namespaceURI.should.equal('http://www.w3.org/2000/svg')
 
         })

@@ -2,7 +2,7 @@ import '@babel/polyfill'
 
 export const h = (elementName, attributes, ...args) => {
     try {
-        let children = args.length ? [].concat(...args) : []
+        const children = args.length ? [].concat(...args) : []
 
         if (attributes === null || attributes === undefined) {
             attributes = {}
@@ -14,14 +14,9 @@ export const h = (elementName, attributes, ...args) => {
                 children
             })
         }
-
-        let nsUri = 'http://www.w3.org/1999/xhtml'
-
-        if (attributes.xmlns !== undefined) {
-            nsUri = attributes.xmlns
-        }
-        
-        const element = document.createElementNS(nsUri, elementName)
+ 
+        const ns = attributes.xmlns || 'http://www.w3.org/1999/xhtml'
+        const element = document.createElementNS(ns, elementName)
 
         if (!Object.keys(attributes).length && children == undefined) {
             return element
@@ -71,16 +66,11 @@ export const f = ({ children }) => {
         const fragment = document.createDocumentFragment()
         children.forEach(child => {
             if (child instanceof Array === true) {
-                child.forEach(item => fragment.appendChild(h(item)))
+                child.forEach(item => fragment.appendChild(item))
             } else if (typeof child === 'string') {
                 fragment.appendChild(document.createTextNode(child))
-            } else if (
-                child instanceof HTMLElement === true ||
-                child instanceof DocumentFragment === true ||
-                child instanceof SVGElement === true) {
-                fragment.appendChild(child)
             } else {
-                fragment.appendChild(h(child))
+                fragment.appendChild(child)
             }
         })
         return fragment
