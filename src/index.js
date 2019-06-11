@@ -1,6 +1,4 @@
-import '@babel/polyfill'
-
-export const h = (elementName, attributes, ...args) => {
+const h = (elementName, attributes, ...args) => {
     try {
         const children = args.length ? [].concat(...args) : []
 
@@ -14,7 +12,7 @@ export const h = (elementName, attributes, ...args) => {
                 children
             })
         }
- 
+
         const ns = attributes.xmlns || 'http://www.w3.org/1999/xhtml'
         const element = document.createElementNS(ns, elementName)
 
@@ -26,8 +24,8 @@ export const h = (elementName, attributes, ...args) => {
             if (typeof child === 'string') {
                 element.appendChild(document.createTextNode(child))
             } else if (
-                child instanceof HTMLElement == true || 
-                child instanceof DocumentFragment === true || 
+                child instanceof HTMLElement == true ||
+                child instanceof DocumentFragment === true ||
                 child instanceof SVGElement === true
                 ) {
                 element.appendChild(child)
@@ -35,7 +33,7 @@ export const h = (elementName, attributes, ...args) => {
                 child.forEach(item => element.appendChild(item))
             }
         })
-    
+
         for (const key in attributes) {
             const value = attributes[key]
             if (value === undefined || key === 'xmlns') {
@@ -61,7 +59,7 @@ export const h = (elementName, attributes, ...args) => {
     }
 }
 
-export const f = ({ children }) => {
+const f = ({ children }) => {
     try {
         const fragment = document.createDocumentFragment()
         children.forEach(child => {
@@ -78,3 +76,5 @@ export const f = ({ children }) => {
         console.log(error)
     }
 }
+
+export { h, f }
