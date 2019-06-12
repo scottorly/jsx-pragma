@@ -5,7 +5,7 @@ const config = {
   input: "src/index.js",
   output: {
     file: `dist/${meta.name}.js`,
-    name: "jsx-dom",
+    name: "jsx-pragma",
     format: "umd",
     indent: false,
     extend: true,

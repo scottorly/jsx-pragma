@@ -76,5 +76,3 @@ export const f = ({ children }) => {
         console.log(error)
     }
 }
-
-export { h, f }

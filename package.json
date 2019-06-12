@@ -1,9 +1,9 @@
 {
-  "name": "jsx-dom",
-  "version": "1.0.0",
+  "name": "jsx-pragma",
+  "version": "1.0.1",
   "description": "jsx pragma transform for html & svg elements",
   "homepage": "https://github.com/ScottORLY/jsx-dom",
-  "main": "dist/jsx-dom.js",
+  "main": "dist/jsx-pragma.min.js",
   "module": "src/index.js",
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
     "tape": "^4.10.2"
   },
   "scripts": {
+    "prepublish": "rollup -c",
     "pretest": "rollup -c",
-    "preinstall": "rollup -c",
     "test": "tape 'tests/*.js'"
   },
   "keywords": [],

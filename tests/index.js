@@ -4,7 +4,7 @@ var jsdom = require('jsdom-global')
 
 jsdom()
 
-tape('jsx-dom', test => {
+tape('jsx-pragma', test => {
     var div = pragma.h(
         'div',
         {className: 'css', id: 'an-id'},
