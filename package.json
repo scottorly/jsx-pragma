@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "jsx pragma transform for html & svg elements",
   "homepage": "https://github.com/ScottORLY/jsx-dom",
-  "main": "dist/index.js",
-  "module":"src/index.js",
+  "main": "dist/jsx-dom.js",
+  "module": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ScottORLY/jsx-dom"
+},
   "dependencies": {},
   "devDependencies": {
     "jsdom": "15.1.1",
@@ -14,6 +18,7 @@
   },
   "scripts": {
     "pretest": "rollup -c",
+    "preinstall": "rollup -c",
     "test": "tape 'tests/*.js'"
   },
   "keywords": [],

@@ -1,4 +1,4 @@
-const h = (elementName, attributes, ...args) => {
+export const h = (elementName, attributes, ...args) => {
     try {
         const children = args.length ? [].concat(...args) : []
 
@@ -59,7 +59,7 @@ const h = (elementName, attributes, ...args) => {
     }
 }
 
-const f = ({ children }) => {
+export const f = ({ children }) => {
     try {
         const fragment = document.createDocumentFragment()
         children.forEach(child => {
