@@ -1,5 +1,5 @@
 var tape = require('tape')
-var pragma = require('../dist/jsx-dom')
+var pragma = require('../dist/jsx-pragma')
 var jsdom = require('jsdom-global')
 
 jsdom()

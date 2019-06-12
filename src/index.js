@@ -23,14 +23,10 @@ export const h = (elementName, attributes, ...args) => {
         children.forEach(child => {
             if (typeof child === 'string') {
                 element.appendChild(document.createTextNode(child))
-            } else if (
-                child instanceof HTMLElement == true ||
-                child instanceof DocumentFragment === true ||
-                child instanceof SVGElement === true
-                ) {
-                element.appendChild(child)
             } else if (child instanceof Array === true) {
                 child.forEach(item => element.appendChild(item))
+            } else {
+                element.appendChild(child)
             }
         })
 
