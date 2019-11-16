@@ -1,6 +1,7 @@
 export const h = (elementName, attributes, ...args) => {
     try {
-        const children = args.length ? [].concat(...args) : []
+
+        const children = [].concat(...args)
 
         if (attributes === null || attributes === undefined) {
             attributes = {}
