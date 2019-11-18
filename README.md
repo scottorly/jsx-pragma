@@ -9,30 +9,30 @@ Small javascript library for transpiling [JSX](https://reactjs.org/docs/react-ap
 
 `npm i -D jsx-pragma`
 
-__jsx-pragma__ provides functions for use with [Babel](https://babeljs.io/) to transpile jsx. This example uses [babel-plugin-transform-react-jsx](https://babeljs.io/docs/en/babel-plugin-transform-react-jsx).
-
+__jsx-pragma__ provides functions for use with [Babel](https://babeljs.io/) to transpile JSX.
 ## Usage
 
-The following JSX `<div />` transpiles to [HTMLDIVElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement).
+The following JSX 
+```javascript
+<div />
+``` 
+transpiles to [HTMLDIVElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement).
 
 Add classes, ids, & common attributes
-
 ```javascript
-<ul className={aCssClassName} />
+<ul className={styles.list} />
 
 <img src={imgSrc} />
 ```
 
 The eventListener attribute takes an array that contains exactly 2 elements: the event type and the function.
-
 ```javascript
 <span eventListener={['click', e => {
     console.log(e)
 }]} />
 ```
 
-Use a function as an element type to create functional components with custom attributes. Currently __jsx-pragma__ only supports functions as elements. Class are not yet supported but could prove useful for managing component state.
-
+Use a function as an element type to create functional components with custom attributes. Currently __jsx-pragma__ only supports functions as elements, classes are not yet supported but could prove useful for managing component state.
 ```javascript
 const Component = ({ attributes: { items }}) => (
     <ul>
@@ -46,7 +46,6 @@ const items = ['foo' 'bar']
 ```
 
 Pass children to any element
-
 ```javascript
 const Component = ({ children }) => (
     <div>
