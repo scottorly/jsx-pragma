@@ -1,3 +1,5 @@
+import nsFor from './namespaces/index.js'
+
 export const h = (elementName, attributes, ...args) => {
     try {
 
@@ -14,7 +16,7 @@ export const h = (elementName, attributes, ...args) => {
             })
         }
 
-        const ns = attributes.xmlns || 'http://www.w3.org/1999/xhtml'
+        const ns = attributes.xmlns || nsFor(elementName)
         const element = document.createElementNS(ns, elementName)
 
         if (!Object.keys(attributes).length && children == undefined) {
