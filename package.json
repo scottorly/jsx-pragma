@@ -1,6 +1,6 @@
 {
   "name": "jsx-pragma",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "jsx pragma transform for html & svg elements",
   "homepage": "https://github.com/ScottORLY/jsx-dom",
   "main": "dist/jsx-pragma.min.js",
