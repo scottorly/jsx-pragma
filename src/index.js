@@ -3,7 +3,7 @@ import nsFor from './namespaces/index.js'
 export const h = (elementName, attributes, ...args) => {
     try {
 
-        const children = [].concat(...args)
+        const children = args.length ? [].concat(...args) : []
 
         if (attributes === null || attributes === undefined) {
             attributes = {}

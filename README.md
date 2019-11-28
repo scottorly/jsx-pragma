@@ -12,10 +12,10 @@ Small javascript library for transpiling [JSX](https://reactjs.org/docs/react-ap
 __jsx-pragma__ provides functions for use with [Babel](https://babeljs.io/) to transpile JSX.
 ## Usage
 
-The following JSX 
+The following JSX
 ```javascript
 <div />
-``` 
+```
 transpiles to [HTMLDIVElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDivElement).
 
 Add classes, ids, & common attributes
