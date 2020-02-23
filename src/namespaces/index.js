@@ -4,7 +4,6 @@ const namespaces = {
 }
 
 const svgs = [
-    'a',
     'animate',
     'animateMotion',
     'animateTransform',
