@@ -1,21 +1,21 @@
 {
   "name": "jsx-pragma",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "jsx pragma transform for html & svg elements",
-  "homepage": "https://github.com/ScottORLY/jsx-dom",
+  "homepage": "https://github.com/ScottORLY/jsx-pragma",
   "main": "dist/jsx-pragma.min.js",
   "module": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ScottORLY/jsx-dom"
+    "url": "https://github.com/ScottORLY/jsx-pragma"
   },
   "dependencies": {},
   "devDependencies": {
-    "jsdom": "16.2.0",
+    "jsdom": "16.2.2",
     "jsdom-global": "3.0.2",
-    "rollup": "^1.32.0",
-    "rollup-plugin-terser": "^5.2.0",
-    "tape": "^4.13.0"
+    "rollup": "^2.16.1",
+    "rollup-plugin-terser": "^6.1.0",
+    "tape": "^5.0.1"
   },
   "scripts": {
     "prepublishOnly": "rollup -c",
